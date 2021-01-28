@@ -1,0 +1,55 @@
+model:
+# kinematic: kinematic model with kinematic center at rear axle (2 steering wheels)
+# dynamic: dynamic model with kinematic center at center of gravity (still 2 steering wheels)
+  vehicle_model: kinematic
+
+dimension:
+  wheelbase: 6.12
+
+delay:
+  steering_delay: 0.2
+
+steering:
+  steering_max: 0.25
+  max_steering_rate_upper_limit: 0.25 # upper limit for maximum steering rate
+  max_steering_rate_lower_limit: 0.1 # lower limit for maximum steering rate
+  max_steering_rate_vehicle_min_speed: 2 # lower threshold of vehicle speed for maximum steering rate
+  max_steering_rate_vehicle_max_speed: 5 # upper threshold of vehicle speed for maximum steering rate
+  control_steering_delay: 0.2
+
+Look_ahead_distance:
+  L: 5.0
+
+controller:
+# accepted controllers:
+# -- p: proportional
+# -- pd: proportional derivative
+# -- pd_f: proportional derivative with feedforward action
+# -- pd_v_f: proportional derivative with velocity normalization and feedforward action
+# -- pid: proportional integral derivative
+# -- pid_f: proportional integral derivative with feedforward action
+# -- pp: pure pursuit control law
+# -- pp_f: pure pursuit control law with feedforward action
+# -- stanley: Stanley controller
+# -- lqr: linear quadratic regulator
+# -- lqr_f: linear quadratic regulator with feedforward action
+
+  type: pp
+  Kp: 0.3
+  Ki: 0.0
+  Kd: 1.0
+  Ks: 0.5    ## stanlay controller gain
+
+vehicle_steering_behaviour:
+  K: 1
+  tau: 0.1
+
+dynamic_model_parameters:
+  # These parameters were selected randomly and hence are tentative, they may not be same as the actual vehicle
+  # As we did not have the values for actual vehicle, we used these parameters to validate our dynamic model.
+  # Once the values of actual parameters are known the values of below mentioned parameters need to be replaced by them.
+  lf: 0.7   # distance from C.G to front axle
+  lr: 0.7   # distance from C.G to rear axle
+  C: 340    # coefficent for linear region of lateral slip curve of tyres(assumed to be same for front and rear tyres)
+  m: 550    # mass of vehicle
+  Iz: 3200  # yaw moment of inertia for the vehicle
