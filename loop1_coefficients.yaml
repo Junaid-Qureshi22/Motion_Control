@@ -1,0 +1,15 @@
+forward_coefficients:
+  x0: 0
+  x1: 103
+  x2: 100
+  y0: 0
+  y1: 57
+  y2: 0
+
+reverse_coefficients:
+  x0: 100
+  x1: 103
+  x2: 0
+  y0: 0
+  y1: -57
+  y2: 0

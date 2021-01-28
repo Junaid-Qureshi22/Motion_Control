@@ -1,0 +1,20 @@
+pose:
+  x: 0
+  y: 0.2
+
+speed:
+  initial_speed: 4
+  global_speed_target: 2.25
+
+acceleration:
+  acceleration: 0.5
+
+simulation:
+  dt: 0.01
+  t_end: 200.0
+  Ts: 0.05
+
+lateral_error_limitation:
+  lateral_error_limit_speed: 0.5
+  lateral_error_upper_limit: 0.5
+  lateral_error_lower_limit: 0.2
